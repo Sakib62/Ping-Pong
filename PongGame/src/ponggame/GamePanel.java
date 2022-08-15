@@ -64,12 +64,18 @@ public class GamePanel extends JPanel implements Runnable {
         ball.draw(g);
     }
 
-    public void move() {
-
+    public void move() 
+    {
+         ball.move();
     }
 
-    public void checkCollision() {
-
+    public void checkCollision()
+    {
+          if(ball.y<=0)
+            ball.setYDirection(-ball.yVelocity);
+         
+          if(ball.y>=GAME_HEIGHT-BALL_DIAMETER)
+            ball.setYDirection(-ball.yVelocity);
     }
 
     public void run() {
