@@ -39,8 +39,9 @@ public class GamePanel extends JPanel implements Runnable {
         gameThread.start();
     }
 
-    public void newBall() {
-
+    public void newBall()
+    {
+        ball = new Ball((GAME_WIDTH/2)-(BALL_DIAMETER/2),(GAME_HEIGHT/2)-(BALL_DIAMETER/2),BALL_DIAMETER,BALL_DIAMETER);
     }
 
     public void newPaddles() {
@@ -54,8 +55,9 @@ public class GamePanel extends JPanel implements Runnable {
         g.drawImage(image,0,0,this);
     }
 
-    public void draw(Graphics g) {
-
+    public void draw(Graphics g)
+    {
+        ball.draw(g);
     }
 
     public void move() {
