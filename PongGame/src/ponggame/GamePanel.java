@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.Random;
 import javax.swing.JPanel;
 
@@ -92,6 +93,9 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public class AL extends KeyAdapter {
-
+        public void keyPressed(KeyEvent e) {
+            paddle1.keyPressed(e);
+            paddle2.keyPressed(e);
+        }
     }
 }
