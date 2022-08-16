@@ -5,7 +5,10 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.util.Random;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JPanel;
 
 public class GamePanel extends JPanel implements Runnable {
@@ -25,13 +28,15 @@ public class GamePanel extends JPanel implements Runnable {
     Paddle paddle2;
     Ball ball;
     Score score;
+    Music music;
 
     
-    GamePanel() 
+    GamePanel() throws UnsupportedAudioFileException, IOException, LineUnavailableException 
     {
         newBall();
         newPaddles();
         Score();
+        Music();
         this.setFocusable(true);
         this.addKeyListener(new AL());
         this.setPreferredSize(SCREEN_SIZE);
@@ -54,7 +59,11 @@ public class GamePanel extends JPanel implements Runnable {
     {
         score = new Score(GAME_WIDTH,GAME_HEIGHT);
     }
-
+    
+    public void Music() throws UnsupportedAudioFileException, IOException, LineUnavailableException
+    {
+        music = new Music();
+    }
     public void paint(Graphics g) {
         image = createImage(getWidth(),getHeight());
         graphics = image.getGraphics();
@@ -125,6 +134,7 @@ public class GamePanel extends JPanel implements Runnable {
         if(paddle2.y>=(GAME_HEIGHT-PADDLE_HEIGHT))
             paddle2.y = GAME_HEIGHT - PADDLE_HEIGHT;
         
+        // New ball and paddle will be created
           if(ball.x <= 0)
          {
              score.player2++;
