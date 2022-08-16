@@ -174,6 +174,7 @@ public class GamePanel extends JPanel implements Runnable {
         public void keyPressed(KeyEvent e) {
             paddle1.keyPressed(e);
             paddle2.keyPressed(e);
+            music.KeyPressed(e);
         }
         public void keyReleased(KeyEvent e) {
             paddle1.keyReleased(e);
