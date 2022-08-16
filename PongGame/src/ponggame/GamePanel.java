@@ -73,12 +73,14 @@ public class GamePanel extends JPanel implements Runnable {
 
     public void checkCollision()
     {
+        //bounce ball off top & bottom window edges
         if(ball.y<=0)
             ball.setYDirection(-ball.yVelocity);
          
         if(ball.y>=GAME_HEIGHT-BALL_DIAMETER)
             ball.setYDirection(-ball.yVelocity);
           
+        //bounce ball off paddles
         if(ball.intersects(paddle1))
         {
             ball.xVelocity = Math.abs(ball.xVelocity);
@@ -106,10 +108,21 @@ public class GamePanel extends JPanel implements Runnable {
             ball.setXDirection(-ball.xVelocity);
             ball.setYDirection(ball.yVelocity);
         }
+        //stops paddles at window edges
+        if(paddle1.y<=0)
+            paddle1.y = 0;
+        if(paddle1.y>=(GAME_HEIGHT-PADDLE_HEIGHT))
+            paddle1.y = GAME_HEIGHT - PADDLE_HEIGHT;
+        
+        if(paddle2.y<=0)
+            paddle2.y = 0;
+        if(paddle2.y>=(GAME_HEIGHT-PADDLE_HEIGHT))
+            paddle2.y = GAME_HEIGHT - PADDLE_HEIGHT;
     }
 
     public void run() {
         
+        //game loop
         long lastTime = System.nanoTime();
         double amountOfTicks = 60.0;
         double ns = 1000000000/amountOfTicks;
