@@ -118,6 +118,17 @@ public class GamePanel extends JPanel implements Runnable {
             paddle2.y = 0;
         if(paddle2.y>=(GAME_HEIGHT-PADDLE_HEIGHT))
             paddle2.y = GAME_HEIGHT - PADDLE_HEIGHT;
+        
+          if(ball.x <= 0)
+         {
+             newPaddles();
+             newBall();
+         }
+          if(ball.x >= GAME_WIDTH-BALL_DIAMETER)
+         {
+             newPaddles();
+             newBall();         
+         }
     }
 
     public void run() {
