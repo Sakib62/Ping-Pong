@@ -15,7 +15,7 @@ import javax.swing.JFrame;
 
 public class MenuFrame extends JFrame implements ActionListener
 {
-     JButton button1;
+    JButton button1;
     JButton button2;
     JButton button3;
     JButton button4;
@@ -23,30 +23,34 @@ public class MenuFrame extends JFrame implements ActionListener
     MenuFrame()
     {
         button1 = new JButton();
-        button1.setBounds(200,100,150,50);   
+        button1.setBounds(170,100,150,50);   
         button1.addActionListener(this);
-        button1.setText("PLAY");
+        button1.setText("PLAY"); 
+        button1.setBackground(new Color(123, 223, 20));
         
         button2 = new JButton();
-        button2.setBounds(200,150,150,50);   
+        button2.setBounds(170,150,150,50);   
         button2.addActionListener(this);
         button2.setText("INSTRUCTION");
+        button2.setBackground(new Color(123, 223, 20));
         
-         button3 = new JButton();
-        button3.setBounds(200,200,150,50);   
+        button3 = new JButton();
+        button3.setBounds(170,200,150,50);   
         button3.addActionListener(this);
         button3.setText("HIGH SCORE");
+        button3.setBackground(new Color(123, 223, 20));
         
         button4 = new JButton();
-        button4.setBounds(200,250,150,50);   
+        button4.setBounds(170,250,150,50);   
         button4.addActionListener(this);
         button4.setText("ABOUT");
+        button4.setBackground(new Color(123, 223, 20));
         
         
         this.setLayout(null);
         this.setSize(500,500);
         this.setResizable(false);
-        this.setBackground(Color.black);
+        this.getContentPane().setBackground(Color.GRAY);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
