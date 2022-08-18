@@ -50,7 +50,7 @@ public class MenuFrame extends JFrame implements ActionListener
         this.setLayout(null);
         this.setSize(500,500);
         this.setResizable(false);
-        this.getContentPane().setBackground(Color.GRAY);
+        this.getContentPane().setBackground(Color.BLACK);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
